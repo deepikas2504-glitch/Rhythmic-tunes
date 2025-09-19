@@ -1,52 +1,19 @@
-"use strict";
+/**
+ * @fileoverview `ConfigArray` class.
+ * @author Toru Nagashima <https://github.com/mysticatea>
+ */
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-exports.requeueComputedKeyAndDecorators = requeueComputedKeyAndDecorators;
-{
-  exports.skipAllButComputedKey = function skipAllButComputedKey(path) {
-    path.skip();
-    if (path.node.computed) {
-      path.context.maybeQueue(path.get("key"));
-    }
-  };
-}
-function requeueComputedKeyAndDecorators(path) {
-  const {
-    context,
-    node
-  } = path;
-  if (node.computed) {
-    context.maybeQueue(path.get("key"));
-  }
-  if (node.decorators) {
-    for (const decorator of path.get("decorators")) {
-      context.maybeQueue(decorator);
-    }
-  }
-}
-const visitor = {
-  FunctionParent(path) {
-    if (path.isArrowFunctionExpression()) {
-      return;
-    } else {
-      path.skip();
-      if (path.isMethod()) {
-        requeueComputedKeyAndDecorators(path);
-      }
-    }
-  },
-  Property(path) {
-    if (path.isObjectProperty()) {
-      return;
-    }
-    path.skip();
-    requeueComputedKeyAndDecorators(path);
-  }
+import { ConfigArray, getUsedExtractedConfigs } from "./config-array.js";
+import { ConfigDependency } from "./config-dependency.js";
+import { ExtractedConfig } from "./extracted-config.js";
+import { IgnorePattern } from "./ignore-pattern.js";
+import { OverrideTester } from "./override-tester.js";
+
+export {
+    ConfigArray,
+    ConfigDependency,
+    ExtractedConfig,
+    IgnorePattern,
+    OverrideTester,
+    getUsedExtractedConfigs
 };
-var _default = visitor;
-exports.default = _default;
-
-//# sourceMappingURL=index.js.map

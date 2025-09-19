@@ -1,29 +1,17 @@
 {
-  "name": "@babel/helper-environment-visitor",
-  "version": "7.22.20",
-  "description": "Helper visitor to only visit nodes in the current 'this' context",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/babel/babel.git",
-    "directory": "packages/babel-helper-environment-visitor"
-  },
-  "homepage": "https://babel.dev/docs/en/next/babel-helper-environment-visitor",
+  "name": "@esbuild/win32-x64",
+  "version": "0.19.9",
+  "description": "The Windows 64-bit binary for esbuild, a JavaScript bundler.",
+  "repository": "https://github.com/evanw/esbuild",
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "./lib/index.js",
-  "exports": {
-    ".": "./lib/index.js",
-    "./package.json": "./package.json"
-  },
-  "devDependencies": {
-    "@babel/traverse": "^7.22.20",
-    "@babel/types": "^7.22.19"
-  },
+  "preferUnplugged": true,
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=12"
   },
-  "author": "The Babel Team (https://babel.dev/team)",
-  "type": "commonjs"
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ]
 }
