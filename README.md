@@ -1,19 +1,19 @@
-# @babel/compat-data
+# @babel/helper-environment-visitor
 
-> 
+> Helper visitor to only visit nodes in the current 'this' context
 
-See our website [@babel/compat-data](https://babeljs.io/docs/babel-compat-data) for more information.
+See our website [@babel/helper-environment-visitor](https://babeljs.io/docs/babel-helper-environment-visitor) for more information.
 
 ## Install
 
 Using npm:
 
 ```sh
-npm install --save @babel/compat-data
+npm install --save @babel/helper-environment-visitor
 ```
 
 or using yarn:
 
 ```sh
-yarn add @babel/compat-data
+yarn add @babel/helper-environment-visitor
 ```
